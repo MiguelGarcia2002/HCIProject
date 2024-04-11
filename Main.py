@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
-import folium
-from streamlit_folium import folium_static
+import matplotlib.pyplot as plt
 
 st.title("HCI Final Project about Health (Working title)")
 
@@ -18,7 +17,7 @@ heightInTotal = (heightInFeet * 12) + heightInInches
 BMI =(weightInPounds /heightInTotal/heightInTotal) * 703
 
 
-if 0 <= BMI <= 18:
+if 0.1 <= BMI <= 18:
     st.warning("Your BMI is " + str(BMI) + ", you are underweight")
     df = pd.read_csv("BMI Chart - Sheet1 (1).csv")
     st.dataframe(df)
@@ -34,6 +33,7 @@ if 25 <= BMI <= 30:
     st.dataframe(df)
 
 if 30 <= BMI <= 10000:
-    st.error("Your BMI is " + str(BMI) + ", you are overweight")
+    st.error("Your BMI is " + str(BMI) + ", you are obese")
     df = pd.read_csv("BMI Chart - Sheet1 (1).csv")
     st.dataframe(df)
+
