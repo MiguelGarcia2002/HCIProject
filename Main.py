@@ -20,7 +20,8 @@ BMI =(weightInPounds /heightInTotal/heightInTotal) * 703
 if 0.1 <= BMI <= 18:
     st.warning("Your BMI is " + str(BMI) + ", you are underweight")
     df = pd.read_csv("BMI Chart - Sheet1 (1).csv")
-    st.dataframe(df)
+    filtered_df = df[df['Ft In'] == f"{heightInFeet}'{heightInInches}\""]
+    st.dataframe(filtered_df)
 
 if 19 <= BMI <= 24:
     st.success("Your BMI is " + str(BMI)+", you have a normal weight")
