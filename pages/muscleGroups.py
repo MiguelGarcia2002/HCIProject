@@ -11,12 +11,12 @@ muscle_groups = {
 }
 
 # function that generates the workout plan
-def generate_plan(num_per_group = 4):
-    plan = {}
-    for group, exercises in muscle_groups.items():
-        plan[group] = random.sample(exercises, num_per_group)
-    return plan
-
+def generate_plan(muscle_group, num_exercises = 4):
+    if muscle_group.lower() not in muscle_groups:
+        return "Invalid input, check your spelling and try again."
+    exercises = random.sample(muscle_groups[muscle_group.lower()], min(num_exercises, len(muscle_groups[muscle_group.lower()])))
+    return {muscle_group.lower(): exercises}                         
+    
 # fucntion that displays the workout plan
 def display_plan(plan):
     for group, exercises in plan.items():
@@ -28,10 +28,14 @@ def display_plan(plan):
 # usage and user input
 if __name__ == "__main__":
     # prompts user to give input
-    num_per_group = int(input("Enter the desired muscle group you would like to workout: "))
+    muscle_group = input("Enter the muscle group you want to work out (arms, back, chest, shoulders, glutes, legs).")
+    num_per_group = int(input("Enter the number of exercises you want for your chosen muscle groups."))
 
     #generate plan based on muscle group input
-    plan = generate_plan(num_per_group)
+    plan = generate_plan(muscle_group, num_per_group)
 
     # display
-    display_plan(plan)
+    if isinstance(plan, dict):
+        display_plan(plan)
+    else:
+        print(plan)
