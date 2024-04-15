@@ -32,7 +32,7 @@ if __name__ == "__main__":
     num_per_group = int(input("Enter the number of exercises you want for your chosen muscle groups."))
 
     #generate plan based on muscle group input
-    plan = generate_plan(num_per_group)
+    plan = generate_plan(muscle_group, num_per_group)
 
     # display
     if isinstance(plan, dict):
