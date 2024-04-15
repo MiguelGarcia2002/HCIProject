@@ -28,8 +28,8 @@ def display_plan(plan):
 # usage and user input
 if __name__ == "__main__":
     # prompts user to give input
-    muscle_group = input("Enter the muscle group you want to work out (arms, back, chest, shoulders, glutes, legs).")
-    num_per_group = int(input("Enter the number of exercises you want for your chosen muscle groups."))
+    muscle_group = input("Enter the muscle group you want to work out (arms, back, chest, shoulders, glutes, legs):")
+    num_per_group = int(input("Enter the number of exercises you want for your chosen muscle groups:"))
 
     #generate plan based on muscle group input
     plan = generate_plan(muscle_group, num_per_group)
