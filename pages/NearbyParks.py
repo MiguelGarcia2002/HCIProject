@@ -7,7 +7,7 @@ import requests
 
 api_key = "ae27f4e8-6047-4c7d-b1cc-bcf768b9c451"
 gmap_api_key = "AIzaSyD0mWLeD6eekVTM9DRfUdUPwZ-VZnzbMOs"
-
+selectColor = "blue"
 st.markdown(
     """
     <style>
@@ -35,6 +35,7 @@ if user_zip:
     location = st.selectbox('Select an option:', options= [" ", "gym", "park"])
 
     if location is not " ":
+
         url = f'https://maps.googleapis.com/maps/api/place/textsearch/json?query={location}+in+{user_zip}&key=AIzaSyD0mWLeD6eekVTM9DRfUdUPwZ-VZnzbMOs'
         json_data = requests.get(url).json()
         # st.json(json_data)
@@ -53,6 +54,9 @@ if user_zip:
         df = pd.DataFrame({"Address": address, "Name": name, "Latitude": latitude, "Longitude": longitude})
 
         st.write(df)
+        color = st.checkbox('Do you want to change the color of the locations on the map')
+        if color:
+            selectColor = st.color_picker('Pick A Color', '#00f900')
 
         fig = px.scatter_mapbox(df, lat="Latitude", lon="Longitude",
                                 zoom =11,
@@ -60,10 +64,12 @@ if user_zip:
                                 hover_name="Name",
                                 )
         fig.update_layout(mapbox_style="open-street-map")
-        fig.update_traces(marker=dict(size=15, color="blue", opacity=0.8))
+        fig.update_traces(marker=dict(size=15, color=selectColor, opacity=0.8))
         fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
 
         st.plotly_chart(fig)
+
+
 
 
 
