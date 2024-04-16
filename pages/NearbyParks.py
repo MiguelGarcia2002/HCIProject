@@ -1,7 +1,5 @@
 import streamlit as st
 import pandas as pd
-import numpy as np
-import folium
 import plotly.express as px
 import requests
 
@@ -23,11 +21,7 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
-
-
-
 st.title("Find nearby Parks or Gyms")
-
 
 user_zip = st.text_input('Insert your ZIP code:')
 
@@ -37,9 +31,6 @@ if user_zip:
     if location is not " ":
         url = f'https://maps.googleapis.com/maps/api/place/textsearch/json?query={location}+in+{user_zip}&key=AIzaSyD0mWLeD6eekVTM9DRfUdUPwZ-VZnzbMOs'
         json_data = requests.get(url).json()
-        # st.json(json_data)
-        # st.write("bruh:")
-
         latitude = []
         longitude = []
         address = []
