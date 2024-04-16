@@ -22,8 +22,11 @@ st.write("Enter your calories for each day of the week: ")
 
 for day in days:
 
-    calorie_input = st.number_input(f"Enter calorie for {day.month}.{day.day}.{day.year}", min_value = 1200)
+    calorie_input = st.number_input(f"Enter calorie for {day.month}.{day.day}.{day.year}",value = None ,placeholder="1200")
+    weight_input = st.number_input(f"Enter weight for {day.month}.{day.day}.{day.year}",Value =None ,placeholder="1200")
+    st.write("   ")
     calories_intake.append(calorie_input)
+    weight.append(weight_input)
     date = f"{day.month}.{day.day}.{day.year}"
     daterange.append(date)
 
