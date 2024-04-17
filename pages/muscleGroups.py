@@ -34,24 +34,11 @@ muscle_groups = {
     'forearms': [],
 }
 
-# function that generates the workout plan
-def generate_plan(muscle_group, num_exercises=4):
-    if muscle_group.lower() not in muscle_groups:
-        return "Invalid input, check your spelling and try again."
-    exercises = random.sample(muscle_groups[muscle_group.lower()],
-                              min(num_exercises, len(muscle_groups[muscle_group.lower()])))
-    return {muscle_group.lower(): exercises}
 
-# function that displays the workout plan
-def display_plan(plan):
-    for group, exercises in plan.items():
-        st.subheader(f"{group.capitalize()} workout")
-        for exercise in exercises:
-            st.write(f" - {exercise}")
 
 # streamlit UI
 st.title("Workout Planner")
-# st.title("Input")
+st.markdown("This planner will allow you to select a group of muscle that you wanna work out on and then select the amount of exercises you wanna do, it will then allow you to see how to do those exercises using the dropdown menu")
 
 # user input for muscle group
 muscle_group = st.selectbox("Select your preferred muscle group", list(muscle_groups.keys()))

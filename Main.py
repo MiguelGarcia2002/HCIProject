@@ -19,6 +19,8 @@ st.markdown(
 )
 
 st.title("Fitness Buddy API")
+st.subheader("BMI Calculator")
+st.markdown("This calculator will allow you to see what BMI (Body Mass Index) you have.")
 #This is for the user to select their height
 heightInFeet = st.selectbox("Select Height in Feet", (4, 5, 6, 7),index=None,placeholder= "Choose your height in Feet. eg, '5 foot' 8 inches")
 heightInInches = st.selectbox("Select Height in Inches", (0,1,2,3,4,5,6,7,8,9,10,11),index=None,placeholder= "Choose your height in Inches. eg, 5 foot '8 inches'")

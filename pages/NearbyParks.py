@@ -22,6 +22,7 @@ st.markdown(
     unsafe_allow_html=True,
 )
 st.title("Find nearby Parks or Gyms")
+st.markdown("This page will find nearby gym and/or parks that you can go to get a workout in.")
 
 user_zip = st.text_input('Insert your ZIP code:')
 
