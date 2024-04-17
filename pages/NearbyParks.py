@@ -29,7 +29,8 @@ if user_zip:
     location = st.selectbox('Select an option:', options= [" ", "gym", "park"])
 
     if location is not " ":
-
+        st.subheader(f"Here's your result for all the {location}s based on the zip code: {user_zip}")
+        st.text(f"Closest {location} is the first, farthest is the last")
         url = f'https://maps.googleapis.com/maps/api/place/textsearch/json?query={location}+in+{user_zip}&key=AIzaSyD0mWLeD6eekVTM9DRfUdUPwZ-VZnzbMOs'
         json_data = requests.get(url).json()
         latitude = []
