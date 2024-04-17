@@ -3,6 +3,22 @@ import matplotlib.pyplot as plt
 import datetime
 import pandas as pd
 
+st.markdown(
+    """
+    <style>
+        [data-testid="stSidebarNav"]::before {
+            content: "Fitness Buddy API";
+            margin-left: 20px;
+            margin-top: 20px;
+            font-size: 30px;
+            position: relative;
+            top: 20px;
+        }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
 st.title("Calories Intake and Weight Tracker")
 
 # define what days the user is going to select
@@ -24,7 +40,7 @@ try:
     for day in days:
 
         calorie_input = st.number_input(f"Enter calorie for {day.month}.{day.day}.{day.year}",min_value=300)
-        weight_input = st.number_input(f"Enter weight for {day.month}.{day.day}.{day.year}",min_value=0)
+        weight_input = st.number_input(f"Enter weight (in lbs/pounds) for {day.month}.{day.day}.{day.year}",min_value=0)
         st.write("   ")
         calories_intake.append(calorie_input)
         weight.append(weight_input)
