@@ -27,22 +27,17 @@ if button:
         #BMI it will throw out the st.success since they do not have to worry about their weight.
         if 0 <= BMI <= 18.4:
             st.warning("Your BMI is " + str(BMI) + ", you are underweight (BMI: 0-18.4)")
-            df = pd.read_csv("BMI Chart - Sheet1.csv")
-            st.dataframe(df)
 
         if 18.5 <= BMI <= 24.9:
             st.success("Your BMI is " + str(BMI)+", you have a normal weight (BMI:18.5-24.9)")
-            df = pd.read_csv("BMI Chart - Sheet1.csv")
-            st.dataframe(df)
 
         if 25 <= BMI <= 29.9:
             st.warning("Your BMI is " + str(BMI) + ", you are overweight (BMI:25-29.9)")
-            df = pd.read_csv("BMI Chart - Sheet1.csv")
-            st.dataframe(df)
 
         if 30 <= BMI <= 10000:
             st.error("Your BMI is " + str(BMI) + ", you are obese (BMI:30-10000)")
-            df = pd.read_csv("BMI Chart - Sheet1.csv")
-            st.dataframe(df)
+        st.subheader("Height vs Weight Table")
+        df = pd.read_csv("BMI Chart - Sheet1.csv")
+        st.dataframe(df)
     except Exception as e:
         st.warning("You need to select a complete height in Feet or Inches")
