@@ -37,7 +37,7 @@ muscle_groups = {
 
 
 # streamlit UI
-st.title("Workout Planner")
+st.title("Exercise Planner")
 st.markdown("This planner will allow you to select a group of muscle that you wanna work out on and then select the amount of exercises you wanna do, it will then allow you to see how to do those exercises using the dropdown menu")
 
 # user input for muscle group
