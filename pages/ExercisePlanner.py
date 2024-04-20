@@ -72,7 +72,10 @@ if response.status_code == requests.codes.ok:
                 exercise_name = i["name"]
                 st.title(exercise_name)
                 st.header("Required Material:")
-                st.subheader(i["equipment"])
+                if i["equipment"] == "other" or i["equipment"] == "only_body":
+                    st.subheader("body")
+                else:
+                    st.subheader(i["equipment"])
                 st.header("Instructions:")
                 st.write(i["instructions"])
 else:
