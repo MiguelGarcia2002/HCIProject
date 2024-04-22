@@ -23,7 +23,7 @@ st.title("Calories Intake and Weight Tracker")
 st.markdown("This tracker allows you to input your calories and weights within the days that you want to track")
 
 # define what days the user is going to select
-day = st.date_input("Choose the days you want to track your weight and calories (minimum of 2 days) :", (datetime.date.today(), datetime.date(2024,4,21)),
+day = st.date_input("Choose the days you want to track your weight and calories (minimum of 2 days) :", (datetime.date.date(2024,4,18), datetime.date(2024,4,21)),
     format="MM.DD.YYYY")
 
 #If this catches the execption of not having more than 2 days it will give out a st.warning, advising them to select more than one day
